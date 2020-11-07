@@ -5,7 +5,26 @@ var resultsBlock = document.getElementById("results");
 var submitButton = document.getElementById("submit");
 
 function theQuiz() {
-}
+    var output = [];
+    questions.forEach(currentQ, qNumber); {
+        var answers = [];
+        for (letter in currentQ.answers) {
+            answers.push(
+            `<label>
+                <input type="radio" name="question${qNumber}" value="${letter}">
+                ${letter}:
+                ${currentQ.answers[letter]}
+            </label>`
+            );
+        }
+        output.push(
+            `<div class="question"> ${currentQ.question} </div>
+            <div class="answers"> ${answers.join("")}</div>`
+        );
+    }
+
+quizBlock.innerHTML = output.join("");
+
 
 function showResults() {
 
@@ -52,4 +71,4 @@ var questions = [ {
     },
     correctAnswer: "a"
     }
-];
+]}
